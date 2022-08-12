@@ -1,0 +1,40 @@
+{
+    "enable": {
+        "houdini_os == 'linux'": false
+    },
+    "env": [
+        {
+            "REDSHIFT_COREDATAPATH": {
+                "method": "replace",
+                "houdini_os == 'windows'": "$HOUDINI_PACKAGE_PATH/win",
+                "houdini_os == 'macos'": "$HOUDINI_PACKAGE_PATH/mac"
+            }
+        },
+        {
+            "REDSHIFT_PLUGIN_PATH": {
+                "method": "replace",
+                "houdini_os == 'windows'": "$REDSHIFT_COREDATAPATH/Plugins/Houdini/$HOUDINI_VERSION",
+                "houdini_os == 'macos'": "$REDSHIFT_COREDATAPATH/redshift4houdini/$HOUDINI_VERSION"
+            }
+        },
+        {
+            "REDSHIFT_SOLARIS_PLUGIN_PATH": {
+                "method": "replace",
+                "houdini_os == 'windows'": "$REDSHIFT_COREDATAPATH/Plugins/Solaris/$HOUDINI_VERSION",
+                "houdini_os == 'macos'": "$REDSHIFT_COREDATAPATH/redshift4solaris/$HOUDINI_VERSION"
+            }
+        },
+        {
+            "HOUDINI_PATH": "$REDSHIFT_PLUGIN_PATH"
+        },
+        {
+            "PXR_PLUGINPATH_NAME": "$REDSHIFT_SOLARIS_PLUGIN_PATH"
+        },
+        {
+            "HOUDINI_DSO_ERROR": "2"
+        },
+        {
+            "PATH": "$REDSHIFT_COREDATAPATH/bin"
+        }
+    ]
+}
