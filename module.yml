@@ -15,4 +15,4 @@ environment:
   HOUDINI_PACKAGE_DIR:
     - $MODULE
   PATH:
-    - $MODULE/bin
+    - $REDSHIFT_COREDATAPATH/bin
